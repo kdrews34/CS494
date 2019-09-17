@@ -1,10 +1,10 @@
 #include "MegunoLink.h"
 #include "FIlter.h"
 
-ExponentialFilter<int> Breath(20,0);
-ExponentialFilter<int> Heart(20,0);
-int bRaw;
-int hRaw;
+ExponentialFilter<float> Breath(10,0);
+ExponentialFilter<float> Heart(10,0);
+float bRaw;
+float hRaw;
 
 void setup() {
   // initialize the serial communication:
@@ -29,5 +29,5 @@ void loop() {
   Serial.print(",");
   Serial.println(Heart.Current());
   //Wait for a bit to keep serial data from saturating
-  delay(20);
+  delay(10);
 }
