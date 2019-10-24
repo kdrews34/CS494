@@ -14,15 +14,15 @@ int LED = 3; //===================PROBABLY GOING TO CHANGE==================
 unsigned char i,j;
 
 // variables for calculating the BPM
-int UpperThreshold = 700;
-int LowerThreshold = 680;
+int UpperThreshold = 600;
+int LowerThreshold = 480;
 int hReading = 0;
 float BPM = 0.0;
 bool IgnoreReading = false;
 bool FirstPulseDetected = false;
 unsigned long FirstPulseTime = 0;
 unsigned long SecondPulseTime = 0;
-unsigned long PulseInterval = 0;
+int PulseInterval = 0;
 
 // variables for calculating inhalation/exhalation
 int Max = 400;
@@ -77,14 +77,14 @@ void fitnessMode(){
   hReading = analogRead(A0);
   Serial.print(hReading);
 
-  Serial.print(",");
+  //Serial.print(",");
 
   // filter the breath rate and send to the serial
 //  bRaw = analogRead(A4);
 //  Breath.Filter(bRaw);
 //  bReading = Breath.Current();
 //  Serial.print(bReading);
-    Serial.print(0);
+    //Serial.print(0);
 
   getBPM(); //function call to calculate bpm
   //getRR(); //function call to calculate rpm, inhalation, exhalation
@@ -192,9 +192,9 @@ void getBPM(){
   BPM = (1.0/PulseInterval) * 60.0 * 1000;
 
   Serial.print(",");
-  Serial.print((int)BPM);
-  Serial.print(",");
-  Serial.println(PulseInterval);
+  //Serial.print((int)BPM);
+  //Serial.print(",");
+  Serial.println((int)PulseInterval);
 }
 
 // functoin which calculates and prints out the 
@@ -222,5 +222,6 @@ void getRR(){
   // print out the Pulse IntervalIn in millis
   Serial.print(",");
   Serial.print(PulseIntervalin);
+  Serial.print(",");
 
 }
