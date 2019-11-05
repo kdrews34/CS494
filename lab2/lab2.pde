@@ -43,7 +43,7 @@ void setup() {                     // do all the sett'n up in the setup
   
   background(0);
   port = new Serial(this, serialPort, 19200);
-  port.bufferUntil('\n');
+  //port.bufferUntil('\n');
   
   drawDataWindows();
 
@@ -134,7 +134,6 @@ void writeAxisLabels(){
     sum += pow(beatTimeX[i+1] - beatTimeX[i], 2);
   }
   HRV = (int)sqrt(sum / (numPoints-1));
-  println(sqrt(sum/numPoints));
   text("HRV: " + HRV + "ms", width/2-50, 55);
   
   fill(200);                                // draw the Plot coordinate values in grey
@@ -187,6 +186,6 @@ void serialEvent(Serial port){
     pulse = true;
   }
   catch(Exception e){
-    //println(e);
+    println(e);
   }
 }

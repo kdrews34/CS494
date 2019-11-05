@@ -21,7 +21,7 @@ void setup() {
   pinMode(lightPin, OUTPUT);
   pinMode(firePlacePin, OUTPUT);
   pinMode(buzzerPin, OUTPUT);
-  
+  Serial.begin(115200);
   cap.begin();
 }
 
@@ -40,15 +40,19 @@ void loop() {
     if (touched & (1 << i)) {
       if ((i+1)==1){
         fanSwitch();
+        Serial.println("fan");
       }
       else if ((i+1)==2) {
         lightSwitch();
+        Serial.println("light");
       }
       else if((i+1)==3){
         fireSwitch();
+        Serial.println("fire");
       }
       else if((i+1)==4){
         buzzerSwitch();
+        Serial.println("buzzer");
       }
     }
   }

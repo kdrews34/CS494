@@ -10,11 +10,11 @@ int bRaw;
 
 // set pinout and vars for the LED
 int buzzer = 2;
-int LED = 3; //===================PROBABLY GOING TO CHANGE==================
+int LED = 5; //===================PROBABLY GOING TO CHANGE==================
 unsigned char i,j;
 
 // variables for calculating the BPM
-int UpperThreshold = 600;
+int UpperThreshold = 550;
 int LowerThreshold = 480;
 int hReading = 0;
 float BPM = 0.0;
